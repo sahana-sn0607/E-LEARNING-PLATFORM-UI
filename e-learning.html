@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Learning Platform (Single File)</title>
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins, sans-serif;}
+    body{background:#eef1f7;transition:0.3s;}
+
+    /* HEADER */
+    header{
+        background:#4c3cff;
+        padding:18px 30px;
+        color:white;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-size:22px;
+        font-weight:600;
+    }
+    header .links a{
+        color:white;
+        margin-left:25px;
+        text-decoration:none;
+        font-size:16px;
+        cursor:pointer;
+    }
+    header button{
+        padding:8px 16px;
+        border:none;
+        background:white;
+        color:#4c3cff;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:600;
+    }
+
+    h2{margin:40px 60px;font-size:26px;}
+
+    /* DASHBOARD */
+    .course-container{
+        display:flex;
+        gap:30px;
+        flex-wrap:wrap;
+        padding:0 60px 40px;
+    }
+    .course-card{
+        background:white;
+        width:320px;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+    .progress{
+        width:60px;
+        height:60px;
+        border-radius:50%;
+        border:7px solid #d4d4d4;
+        border-top-color:#4c3cff;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-weight:600;
+        margin-bottom:15px;
+    }
+    .course-card button{
+        background:#4c3cff;
+        color:white;
+        padding:8px 16px;
+        border:none;
+        border-radius:6px;
+        margin-top:10px;
+        cursor:pointer;
+    }
+
+    /* COURSE DETAILS PAGE */
+    iframe{
+        width:100%;
+        height:380px;
+        border-radius:12px;
+    }
+    .container{
+        padding:40px 60px;
+    }
+    .description{
+        margin-top:20px;
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* PROFILE PAGE */
+    .profile-box{
+        width:380px;
+        margin:50px auto;
+        background:white;
+        padding:30px;
+        border-radius:12px;
+        text-align:center;
+        box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    }
+    .profile-box img{
+        width:120px;
+        border-radius:50%;
+        margin-bottom:15px;
+    }
+
+    footer{
+        margin-top:60px;
+        text-align:center;
+        padding:18px;
+        background:#4c3cff;
+        color:white;
+    }
+
+    /* DARK MODE */
+    .dark{background:#1b1b1b;color:white;}
+    .dark .course-card,.dark .description,.dark .profile-box{background:#282828;color:white;}
+    .dark header{background:#2623c4;}
+    .dark footer{background:#2623c4;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>E-Learning Platform</div>
+    <div class="links">
+        <a onclick="showPage('dashboard')">Dashboard</a>
+        <a onclick="showPage('profile')">Profile</a>
+    </div>
+    <button onclick="toggleMode()">Dark Mode</button>
+</header>
+
+<!-- ========== DASHBOARD PAGE ========== -->
+<div id="dashboard">
+    <h2>Trending Courses</h2>
+
+    <div class="course-container">
+        <div class="course-card">
+            <div class="progress">45%</div>
+            <h3>Modern HTML & CSS</h3>
+            <button onclick="showPage('courseDetails')">View Details</button>
+        </div>
+
+        <div class="course-card">
+            <div class="progress">65%</div>
+            <h3>JavaScript ES2025</h3>
+            <button onclick="showPage('courseDetails')">View Details</button>
+        </div>
+
+        <div class="course-card">
+            <div class="progress">30%</div>
+            <h3>React + Tailwind</h3>
+            <button onclick="showPage('courseDetails')">View Details</button>
+        </div>
+
+        <div class="course-card">
+            <div class="progress">55%</div>
+            <h3>Node.js & Express</h3>
+            <button onclick="showPage('courseDetails')">View Details</button>
+        </div>
+
+        <div class="course-card">
+            <div class="progress">70%</div>
+            <h3>Python Automation</h3>
+            <button onclick="showPage('courseDetails')">View Details</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== COURSE DETAILS PAGE ========== -->
+<div id="courseDetails" style="display:none;">
+    <div class="container">
+        <h2>Modern HTML & CSS — Full Course</h2>
+
+        <iframe src="https://www.youtube.com/embed/1Rs2ND1ryYc" allowfullscreen></iframe>
+
+        <div class="description">
+            <h3>About This Course</h3>
+            <p>This course teaches complete HTML5, CSS3, flexbox, grid, animations, responsive design, and real-world projects.</p>
+
+            <button onclick="showPage('dashboard')">⬅ Back to Courses</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== PROFILE PAGE ========== -->
+<div id="profile" style="display:none;">
+    <div class="profile-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+        <h2>Sahana</h2>
+        <p>Email: user@example.com</p>
+        <p>Enrolled Courses: 5</p>
+    </div>
+</div>
+
+<footer>© 2025 E-Learning Platform. All rights reserved.</footer>
+
+<script>
+function toggleMode(){
+    document.body.classList.toggle("dark");
+}
+
+function showPage(page){
+    document.getElementById("dashboard").style.display="none";
+    document.getElementById("courseDetails").style.display="none";
+    document.getElementById("profile").style.display="none";
+
+    document.getElementById(page).style.display="block";
+}
+</script>
+
+</body>
+</html>
