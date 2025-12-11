@@ -19,7 +19,17 @@ Description of Task: Responsive E-Learning Platform UI with course listings, pro
 
 
 
+
+
+
 <img width="1920" height="1028" alt="Image" src="https://github.com/user-attachments/assets/6c30a5af-7807-4bb6-88ef-85fae5556a2d" />
+
+
+
+
+
+
+<img width="1920" height="1031" alt="Image" src="https://github.com/user-attachments/assets/73237a3d-ce51-4d0c-b636-d5733e250878" />
 
 
 
